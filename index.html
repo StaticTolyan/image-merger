@@ -60,187 +60,332 @@
         }
         
         #sidebar {
-            width: 300px;
+            width: 400px;
             height: 100vh;
             background: #fff;
             border-left: 1px solid #ddd;
-            padding: 20px;
+            padding: 8px;
             box-sizing: border-box;
             overflow-y: auto;
             flex-shrink: 0;
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 6px;
         }
         
         @media (max-width: 768px) {
             body {
                 flex-direction: column;
+                height: 100%;
+                overflow: auto;
             }
             
             #editor-container {
-                height: 60vh;
+                height: 50vh;
+                min-height: 400px;
+                padding: 10px;
             }
             
             #sidebar {
                 width: 100%;
-                height: 40vh;
+                height: auto;
+                max-height: 50vh;
                 border-left: none;
                 border-top: 1px solid #ddd;
+            }
+
+            .control-group {
+                background: #f8f8f8;
+                border-radius: 4px;
+                padding: 8px;
+                margin-bottom: 6px;
+            }
+
+            .control-group h4 {
+                margin: 0 0 4px 0;
+                color: #666;
+                font-size: 11px;
+            }
+
+            .control-item {
+                flex: 1 1 calc(33.33% - 4px);
+                min-width: 100px;
+                margin-bottom: 4px;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .control-item label {
+                font-size: 11px;
+                color: #666;
+                margin-bottom: 2px;
+            }
+
+            .control-item.full-width {
+                flex: 1 1 100%;
+                margin: 2px 0;
+            }
+
+            .checkbox-group {
+                display: flex;
+                gap: 8px;
+                flex-wrap: wrap;
+                margin-bottom: 6px;
+                justify-content: space-between;
+            }
+
+            .checkbox-control {
+                display: flex;
+                align-items: center;
+                gap: 4px;
+            }
+
+            .checkbox-control input[type="checkbox"] {
+                margin: 0;
+                width: 14px;
+                height: 14px;
+            }
+
+            .checkbox-control label {
+                font-size: 11px;
+                margin: 0;
+            }
+
+            .text-element {
+                background: #fff;
+                padding: 6px;
+                border-radius: 3px;
+                border: 1px solid #eee;
+                display: flex;
+                flex-direction: column;
+                gap: 4px;
+                flex: 1 1 calc(50% - 3px);
+            }
+
+            .text-input {
+                width: 100%;
+                min-height: 32px;
+                padding: 4px 6px;
+                border: 1px solid #ddd;
+                border-radius: 3px;
+                font-size: 12px;
+                resize: vertical;
+            }
+
+            .scale-control {
+                background: #fff;
+                padding: 6px;
+                border-radius: 3px;
+                border: 1px solid #eee;
+            }
+
+            .scale-label {
+                display: flex;
+                justify-content: space-between;
+                font-size: 11px;
+                color: #666;
+                margin-bottom: 2px;
+            }
+
+            input[type="file"] {
+                width: 100%;
+                padding: 2px;
+                font-size: 11px;
+                border: 1px solid #ddd;
+                border-radius: 3px;
+            }
+
+            input[type="range"] {
+                width: 100%;
+                margin: 4px 0;
+                -webkit-appearance: none;
+                height: 3px;
+                background: #ddd;
+                border-radius: 2px;
+                outline: none;
+            }
+
+            input[type="range"]::-webkit-slider-thumb {
+                -webkit-appearance: none;
+                width: 12px;
+                height: 12px;
+                background: #4CAF50;
+                border-radius: 50%;
+                cursor: pointer;
+                transition: all 0.2s;
+            }
+
+            .btn {
+                padding: 8px;
+                border: none;
+                border-radius: 3px;
+                background: #4CAF50;
+                color: white;
+                cursor: pointer;
+                width: 100%;
+                font-size: 12px;
+                transition: all 0.2s;
+                margin-top: 2px;
+                white-space: nowrap;
+            }
+
+            .btn:hover {
+                background: #45a049;
+                transform: translateY(-1px);
+            }
+
+            .btn:active {
+                transform: translateY(0);
             }
         }
         
         .control-group {
             background: #f8f8f8;
-            border-radius: 5px;
-            padding: 15px;
-        }
-        
-        .control-group h3 {
-            margin: 0 0 10px 0;
-            color: #333;
-            font-size: 14px;
-        }
-        
-        .btn {
-            padding: 8px 15px;
-            border: none;
             border-radius: 4px;
-            background: #4CAF50;
-            color: white;
-            cursor: pointer;
-            width: 100%;
-            font-size: 14px;
-            transition: background 0.2s;
-            margin-top: 5px;
-        }
-        
-        .btn:hover {
-            background: #45a049;
-        }
-        
-        .scale-control {
-            margin: 15px 0 5px 0;
-        }
-        
-        input[type="range"] {
-            width: 100%;
-            margin: 10px 0;
-            -webkit-appearance: none;
-            height: 5px;
-            background: #ddd;
-            border-radius: 5px;
-            outline: none;
-        }
-        
-        input[type="range"]::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            width: 15px;
-            height: 15px;
-            background: #4CAF50;
-            border-radius: 50%;
-            cursor: pointer;
-        }
-        
-        input[type="file"] {
-            width: 100%;
-            padding: 5px;
-            margin: 5px 0;
-        }
-        
-        .scale-label {
-            display: flex;
-            justify-content: space-between;
-            color: #666;
-            font-size: 12px;
-            margin-top: 5px;
-        }
-        
-        .canvas-info {
-            position: absolute;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(0,0,0,0.7);
-            color: white;
-            padding: 5px 10px;
-            border-radius: 3px;
-            font-size: 12px;
-            white-space: nowrap;
-            z-index: 10;
-        }
-        
-        .text-control {
-            margin-bottom: 10px;
-        }
-        
-        .text-control input[type="text"] {
-            width: 100%;
             padding: 8px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            margin-bottom: 5px;
+            margin-bottom: 6px;
         }
-        
-        .text-control input[type="color"] {
-            width: 40px;
-            height: 30px;
-            padding: 0;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            vertical-align: middle;
-        }
-        
-        .text-control input[type="number"] {
-            width: 60px;
-            padding: 4px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            margin: 0 5px;
-        }
-        
-        .text-control label {
-            font-size: 12px;
+
+        .control-group h4 {
+            margin: 0 0 4px 0;
             color: #666;
-            margin-right: 5px;
+            font-size: 11px;
         }
-        
-        .text-options {
+
+        .controls {
             display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 5px;
+            flex-wrap: wrap;
+            gap: 6px;
         }
-        
+
+        .control-item {
+            flex: 1 1 calc(50% - 3px);
+            min-width: 100px;
+            margin-bottom: 4px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .control-item label {
+            font-size: 11px;
+            color: #666;
+            margin-bottom: 2px;
+        }
+
+        .control-item.full-width {
+            flex: 1 1 100%;
+            margin: 2px 0;
+        }
+
+        .checkbox-group {
+            display: flex;
+            justify-content: space-evenly;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 6px;
+        }
+
         .checkbox-control {
             display: flex;
             align-items: center;
-            gap: 10px;
-            margin-bottom: 10px;
+            gap: 4px;
         }
-        
+
         .checkbox-control input[type="checkbox"] {
-            width: 18px;
-            height: 18px;
-            cursor: pointer;
+            margin: 0;
+            width: 14px;
+            height: 14px;
         }
-        
+
         .checkbox-control label {
-            font-size: 14px;
-            color: #333;
-            cursor: pointer;
+            font-size: 11px;
+            margin: 0;
         }
-        
+
+        .text-element {
+            background: #fff;
+            padding: 6px;
+            border-radius: 3px;
+            border: 1px solid #eee;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
         .text-input {
-            width: calc(100% - 20px);
-            padding: 4px 8px;
+            width: 100%;
+            min-height: 50px;
+            padding: 4px 6px;
             border: 1px solid #ddd;
-            border-radius: 4px;
-            margin: 5px 0;
-            font-size: 14px;
-            min-height: 60px;
-            resize: vertical;
+            border-radius: 3px;
+            font-size: 12px;
+            resize: both;
+        }
+
+        .scale-control {
+            background: #fff;
+            padding: 6px;
+            border-radius: 3px;
+            border: 1px solid #eee;
+        }
+
+        .scale-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 11px;
+            color: #666;
+            margin-bottom: 2px;
+        }
+
+        input[type="file"] {
+            width: 100%;
+            padding: 2px;
+            font-size: 11px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+
+        input[type="range"] {
+            width: 100%;
+            margin: 4px 0;
+            -webkit-appearance: none;
+            height: 3px;
+            background: #ddd;
+            border-radius: 2px;
+            outline: none;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 12px;
+            height: 12px;
+            background: #4CAF50;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn {
+            padding: 6px 8px;
+            border: none;
+            border-radius: 3px;
+            background: #4CAF50;
+            color: white;
+            cursor: pointer;
+            width: 100%;
+            font-size: 11px;
+            transition: all 0.2s;
+            margin-top: 2px;
+            white-space: nowrap;
+        }
+
+        .btn:hover {
+            background: #45a049;
+            transform: translateY(-1px);
+        }
+
+        .btn:active {
+            transform: translateY(0);
         }
     </style>
 </head>
@@ -252,80 +397,102 @@
             </div>
         </div>
     </div>
-    
     <div id="sidebar">
         <div class="control-group">
-            <h3>Рамка</h3>
-            <input type="file" id="frame" accept="image/*">
-        </div>
-        
-        <div class="control-group">
-            <h3>Фото</h3>
-            <input type="file" id="photo" accept="image/*">
-            <div class="scale-control">
-                <input type="range" id="photoScale" min="1" max="400" value="100" step="1">
-                <div class="scale-label">
-                    <span>1%</span>
-                    <span>100%</span>
-                    <span>400%</span>
+            <div class="controls">
+                <div class="control-item">
+                    <label>Рамка:</label>
+                    <input type="file" id="frame" accept="image/*">
                 </div>
-            </div>
-        </div>
-        
-        <div class="control-group">
-            <h3>Категорії</h3>
-            <div class="checkbox-control">
-                <input type="checkbox" id="showMen" checked>
-                <label for="showMen">MEN</label>
-            </div>
-            <div class="checkbox-control">
-                <input type="checkbox" id="showWomen" checked>
-                <label for="showWomen">WOMEN</label>
-            </div>
-            <div class="checkbox-control">
-                <input type="checkbox" id="showKids" checked>
-                <label for="showKids">KIDS</label>
+                <div class="control-item">
+                    <label>Фото:</label>
+                    <input type="file" id="photo" accept="image/*">
+                </div>
+                <div class="control-item full-width">
+                    <div class="scale-control">
+                        <div class="scale-label">
+                            <span>Масштаб фото:</span>
+                            <span>1% - 400%</span>
+                        </div>
+                        <input type="range" id="photoScale" min="1" max="400" value="100" step="1">
+                    </div>
+                </div>
+                <div class="control-item">
+                    <button id="centerBtn" class="btn">Центрувати фото</button>
+                </div>
+                <div class="control-item">
+                    <button id="fitBtn" class="btn">Підігнати розмір</button>
+                </div>
+                <div class="control-item">
+                    <button id="exportBtn" class="btn">Експортувати</button>
+                </div>
             </div>
         </div>
 
         <div class="control-group">
-            <h3>Текстові елементи</h3>
-            <div class="checkbox-control">
-                <input type="checkbox" id="showPrice" checked>
-                <label for="showPrice">Ціна</label>
-                <textarea id="priceText" class="text-input">349 и 245 €</textarea>
-            </div>
-            <div class="checkbox-control">
-                <input type="checkbox" id="showBrandName" checked>
-                <label for="showBrandName">Бренд</label>
-                <textarea id="brandNameText" class="text-input">ARMANI EXCHANGE</textarea>
-            </div>
-            <div class="checkbox-control">
-                <input type="checkbox" id="showSku" checked>
-                <label for="showSku">SKU</label>
-                <textarea id="skuText" class="text-input">SKU:
+            <div class="controls">
+                <div class="control-item categories">
+                    <h4>Категорії:</h4>
+                    <div class="checkbox-group">
+                        <div class="checkbox-control">
+                            <input type="checkbox" id="showMen" checked>
+                            <label for="showMen">MEN</label>
+                        </div>
+                        <div class="checkbox-control">
+                            <input type="checkbox" id="showWomen" checked>
+                            <label for="showWomen">WOMEN</label>
+                        </div>
+                        <div class="checkbox-control">
+                            <input type="checkbox" id="showKids" checked>
+                            <label for="showKids">KIDS</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="control-item text-element">
+                    <div class="checkbox-control">
+                        <input type="checkbox" id="showPrice" checked>
+                        <label for="showPrice">Ціна</label>
+                        <textarea id="priceText" class="text-input">349 и 245 €</textarea>
+                    </div>
+                </div>
+
+                <div class="control-item text-element">
+                    <div class="checkbox-control">
+                        <input type="checkbox" id="showBrandName" checked>
+                        <label for="showBrandName">Бренд</label>
+                        <textarea id="brandNameText" class="text-input">ARMANI EXCHANGE</textarea>
+                    </div>
+                </div>
+
+                <div class="control-item text-element">
+                    <div class="checkbox-control">
+                        <input type="checkbox" id="showSku" checked>
+                        <label for="showSku">SKU</label>
+                        <textarea id="skuText" class="text-input">SKU:
 SROFRBAL1401S50</textarea>
-            </div>
-            <div class="checkbox-control">
-                <input type="checkbox" id="showSize" checked>
-                <label for="showSize">Розмір</label>
-                <textarea id="sizeText" class="text-input">SIZE
+                    </div>
+                </div>
+
+                <div class="control-item text-element">
+                    <div class="checkbox-control">
+                        <input type="checkbox" id="showSize" checked>
+                        <label for="showSize">Розмір</label>
+                        <textarea id="sizeText" class="text-input">SIZE
 52</textarea>
-            </div>
-            <div class="checkbox-control">
-                <input type="checkbox" id="showSale" checked>
-                <label for="showSale">Знижка</label>
-                <textarea id="saleText" class="text-input">ФИНАЛЬНАЯ
+                    </div>
+                </div>
+
+                <div class="control-item text-element">
+                    <div class="checkbox-control">
+                        <input type="checkbox" id="showSale" checked>
+                        <label for="showSale">Знижка</label>
+                        <textarea id="saleText" class="text-input">ФИНАЛЬНАЯ
 РАСПРОДАЖА
 -80%</textarea>
+                    </div>
+                </div>
             </div>
-        </div>
-        
-        <div class="control-group">
-            <h3>Інструменти</h3>
-            <button id="centerBtn" class="btn">Центрувати фото</button>
-            <button id="fitBtn" class="btn">Підігнати розмір</button>
-            <button id="exportBtn" class="btn">Експортувати</button>
         </div>
     </div>
 
